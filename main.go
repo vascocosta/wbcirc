@@ -109,10 +109,7 @@ func main() {
 		err = wbc.play(nick, parts[1:])
 		if err != nil {
 			con.Privmsg(channel, fmt.Sprintf("%s: %s", nick, err.Error()))
-			return
 		}
-
-		con.Privmsg(channel, fmt.Sprintf("%s: Your bet was successfully updated.", nick))
 	})
 
 	// End of WHOIS (318) -> means user was NOT authed.
