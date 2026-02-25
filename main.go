@@ -48,9 +48,9 @@ func main() {
 		if len(parts) == 1 {
 			guess := wbc.currentGuess(nick)
 			if guess == "" {
-				con.Privmsg(channel, "You haven't placed a bet for the current race yet.")
+				con.Privmsg(channel, fmt.Sprintf("%s: You haven't placed a bet for the current race yet.", nick))
 			} else {
-				con.Privmsg(channel, guess)
+				con.Privmsg(channel, fmt.Sprintf("%s: Your current bet for the %s", nick, guess))
 			}
 			return
 		}
@@ -112,7 +112,7 @@ func main() {
 			return
 		}
 
-		con.Privmsg(channel, fmt.Sprintf("%s: your bet was updated.", nick))
+		con.Privmsg(channel, fmt.Sprintf("%s: Your bet was successfully updated.", nick))
 	})
 
 	// End of WHOIS (318) -> means user was NOT authed.
