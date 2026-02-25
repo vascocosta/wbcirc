@@ -47,7 +47,11 @@ func main() {
 
 		if len(parts) == 1 {
 			guess := wbc.currentGuess(nick)
-			con.Privmsg(channel, guess)
+			if guess == "" {
+				con.Privmsg(channel, "You haven't placed a bet for the current race yet.")
+			} else {
+				con.Privmsg(channel, guess)
+			}
 			return
 		}
 
