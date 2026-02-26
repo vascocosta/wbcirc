@@ -33,10 +33,14 @@ func isNickAuthorized(nick string, account string) (bool, error) {
 			return false, errors.New("Could not verify IRC account.")
 		}
 
-		if strings.EqualFold(record[0], nick) && strings.EqualFold(record[1], account) {
-			return true, nil
+		if strings.EqualFold(record[0], nick) {
+			if strings.EqualFold(record[1], account) {
+				return true, nil
+			} else {
+				return false, nil
+			}
 		}
 	}
 
-	return false, nil
+	return false, errors.New("Ask gluon to add your QuakeNet account name to the database.")
 }
