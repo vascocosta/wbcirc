@@ -40,10 +40,10 @@ func (wbc WBC) currentGuess(nick string) string {
 	return string(body)
 }
 
-func (wbc WBC) play(nick string, drivers []string) error {
+func (wbc WBC) play(nick string, drivers []string) (int, error) {
 	apiKey, err := wbc.token(nick)
 	if err != nil {
-		return err
+		return 500, err
 	}
 
 	payload := map[string]interface{}{
@@ -58,12 +58,12 @@ func (wbc WBC) play(nick string, drivers []string) error {
 
 	jsonData, err := json.Marshal(payload)
 	if err != nil {
-		return errors.New("Could not parse data.")
+		return 500, errors.New("Could not parse data.")
 	}
 
 	req, err := http.NewRequest(http.MethodPost, apiURL+"play", bytes.NewBuffer(jsonData))
 	if err != nil {
-		return err
+		return 500, err
 	}
 
 	req.Header.Set("Content-Type", "application/json")
@@ -72,16 +72,11 @@ func (wbc WBC) play(nick string, drivers []string) error {
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		return err
+		return 500, err
 	}
 	defer resp.Body.Close()
 
-	body, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return err
-	}
-
-	return errors.New(string(body))
+	return 200, nil
 }
 
 func (wbc WBC) token(nick string) (string, error) {

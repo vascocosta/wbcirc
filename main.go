@@ -97,7 +97,7 @@ func main() {
 		}
 
 		if !ok {
-			con.Privmsg(channel, fmt.Sprintf("%s you were caught trying to play as another user. Shame!", account))
+			con.Privmsg(channel, fmt.Sprintf("%s: You were caught trying to play as another user. Shame!", account))
 			return
 		}
 
@@ -106,10 +106,13 @@ func main() {
 			return
 		}
 
-		err = wbc.play(nick, parts[1:])
+		_, err = wbc.play(nick, parts[1:])
 		if err != nil {
 			con.Privmsg(channel, fmt.Sprintf("%s: %s", nick, err.Error()))
+			return
 		}
+
+		con.Privmsg(channel, fmt.Sprintf("%s: You have successfully updated your bet.", nick))
 	})
 
 	// End of WHOIS (318) -> means user was NOT authed.
