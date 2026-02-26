@@ -48,7 +48,7 @@ func main() {
 		if len(parts) == 1 {
 			guess := wbc.currentGuess(nick)
 			if guess == "" {
-				con.Privmsg(channel, fmt.Sprintf("%s: You haven't played for the current race yet.", nick))
+				con.Privmsg(channel, fmt.Sprintf("%s: You haven't placed a bet for the current race yet.", nick))
 			} else {
 				con.Privmsg(channel, fmt.Sprintf("%s: %s", nick, guess))
 			}
@@ -56,7 +56,7 @@ func main() {
 		}
 
 		if len(parts) != 6 {
-			con.Privmsg(target, "Usage: !bet first second third fourth fifth")
+			con.Privmsg(target, "Usage: !bet 1ST 2ND 3RD 4TH 5TH")
 			return
 		}
 

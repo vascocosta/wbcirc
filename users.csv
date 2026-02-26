@@ -1,0 +1,5 @@
+token,username,password,country
+2ebd802d-1e63-4e4a-b3d2-8192d87b4ec2,-pred-,"$argon2id$v=19$m=19456,t=2,p=1$/1S46AcvjoNSU1w+H0jGYQ$SNbLSaS7Ekv4mosmF+VYYxohkW+2FJJKuAYvEZWKP3g",
+b956e372-aadb-4789-8ee8-3c8d65b0d48b,xemanth,"$argon2id$v=19$m=19456,t=2,p=1$v7C3NmyL7m+BBr3wamE20Q$I4NxJipq9MTrVqkB/xtVwKQGScs4Jb3WBJyGBqdWzG8",FI
+5a64ee55-d1e1-4c1a-b2c4-cf0d0791948e,bernix,"$argon2id$v=19$m=19456,t=2,p=1$2JnazQ5q9mYTvRgHQ3wlPg$GQMwM30idPyW667NxBsGQ+Xrg/Me3pYykNR7UWYGwhE",CZ
+bbfd8337-32ce-4242-ac8d-7b7bcc8da5c7,gluon,"$argon2id$v=19$m=19456,t=2,p=1$arQaSrIkI7uSOx3ab4bWkw$+s5DlrP7H+q8n0XTmhE4i6SXui2Lg45TUOntQxi07LQ",PT
