@@ -97,7 +97,7 @@ func main() {
 		}
 
 		if !ok {
-			con.Privmsg(channel, fmt.Sprintf("%s: You were caught trying to play as another user. Shame!", account))
+			con.Privmsg(channel, fmt.Sprintf("%s: You were caught trying to play as %s. Shame!", account, nick))
 			return
 		}
 
