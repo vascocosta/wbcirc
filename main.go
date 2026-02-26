@@ -135,7 +135,7 @@ func main() {
 			return
 		}
 
-		con.Privmsg(channel, fmt.Sprintf("%s you are not authenticated. Please authenticate to play WBC.", nick))
+		con.Privmsg(channel, fmt.Sprintf("%s You are not authenticated. Please authenticate to play WBC.", nick))
 	})
 
 	// Optional safety cleanup if WHOIS never returns.
