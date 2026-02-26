@@ -92,7 +92,7 @@ func main() {
 
 		ok, err := isNickAuthorized(nick, account)
 		if err != nil {
-			con.Privmsg(channel, fmt.Sprintf("%s %v", err, nick))
+			con.Privmsg(channel, fmt.Sprintf("%s: %v", nick, err))
 			return
 		}
 
