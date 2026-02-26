@@ -76,6 +76,14 @@ func (wbc WBC) play(nick string, drivers []string) error {
 	}
 	defer resp.Body.Close()
 
+	if resp.StatusCode != 200 {
+		bodyBytes, err := io.ReadAll(resp.Body)
+		if err != nil {
+			return err
+		}
+		return errors.New(string(bodyBytes))
+	}
+
 	return nil
 }
 
