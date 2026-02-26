@@ -102,11 +102,11 @@ func main() {
 		}
 
 		if len(parts) != 6 {
-			con.Privmsg(channel, "Usage: !bet first second third fourth fifth")
+			con.Privmsg(channel, "Usage: !bet 1ST 2ND 3RD 4TH 5TH")
 			return
 		}
 
-		_, err = wbc.play(nick, parts[1:])
+		err = wbc.play(nick, parts[1:])
 		if err != nil {
 			con.Privmsg(channel, fmt.Sprintf("%s: %s", nick, err.Error()))
 			return
