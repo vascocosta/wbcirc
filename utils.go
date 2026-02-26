@@ -33,8 +33,8 @@ func isNickAuthorized(nick string, account string) (bool, error) {
 			return false, errors.New("Could not verify IRC account.")
 		}
 
-		if strings.EqualFold(record[0], nick) {
-			if strings.EqualFold(record[1], account) {
+		if strings.EqualFold(record[1], account) {
+			if strings.EqualFold(record[0], nick) {
 				return true, nil
 			} else {
 				return false, nil
